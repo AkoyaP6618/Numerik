@@ -43,7 +43,13 @@ public class Launcher {
     //TODO beide awps implementieren und tabelle
 
     public static void schiessverfahren(){
-    	// y" = y -t3 ,y(0)=2 , y'(0)=c solange in abh. von c integrieren bis y(2)=1
+    	// y" = y - t^3
+    	// ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?
+    	// y' = y^2/2 − t^3*y + c
+    	// y  = y^3/6 − t^3*y + c*x + d
+    	// y(0)=2 , y'(0)=c solange in abh. von c integrieren bis y(2)=1
+    	
+    	// wenn y'(0)=c if(x^2/2-t^3x == -c)
     	
     }
     
