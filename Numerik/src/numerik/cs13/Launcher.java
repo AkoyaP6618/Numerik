@@ -2,51 +2,23 @@ package numerik.cs13;
 
 public class Launcher {
 
+    public static double[] y1;
+    public static double[] y2;
+
     public static void main(String[] args) {
-	rungeKutta();
-    }
+	RungeKutta rk = new RungeKutta();
+	AWPtoRWP awpToRwp = new AWPtoRWP();
 
-    // aendern
-    public static void rungeKutta() {
-
-	double y = 2;
-	double x = 0;
-	double h = 0.1;
-
-	double k1 = 0;
-	double k2 = 0;
-	double k3 = 0;
-	double k4 = 0;
-
-	// i aendern!
-	for (int i = 1; i <= 20; i++) {
-
-	    // x = xi = ?
-	    k1 = f(x, y);
-	    k2 = f(x + 0.5 * h, y + 0.5 * k1 * h);
-	    k3 = f(x + 0.5 * h, y + 0.5 * k2 * h);
-	    k4 = f(x + h, y + k3 * h);
-	    y = y + (h / 6) * (k1 + 2 * k2 + 2 * k3 + k4);
-	    x = x + h;
-
-	    System.out.println("Schritt " + i + ": " + x + " ; " + y);
-
+	System.out.println("Loesung folgender DGL 2. Ordnung als Randwertproblem:");
+	System.out.println("-y'' + y = t^3 , y(0) = 2, y(2) = 1\r");
+	System.out.println("1. 2 Anfangswertprobleme mit Runge-Kutta");
+	double[] y1 = rk.rungeKutta(2, 4, 1);
+	double[] y2 = rk.rungeKutta(0, 4, 2);
+	double c = awpToRwp.calculateC(2, 1, y1, y2);
+	double y[] = awpToRwp.toRWP(y1, y2, c);
+	for (int i = 0; i < y.length; i++) {
+	    double x = ((double) i) / 10;
+	    System.out.println("x = " + x + " ;  y = " + y2[i]);
 	}
-
-	// 		Formel Runge-Kutta: 
-	//		yn+1 = yn + 1/6 (k1 + 2 * k2 + 2 * k3 + k4) h
-	//			k1 = f(xi, yi)
-	//			k2 = f(xi + 1/2 * h, yi + 1/2 * k1 * h)
-	//			k3 = f(xi + 1/2 * h, yi + 1/2 * k2 * h)
-	//			k4 = f(xi + h, yi + k3 * h)
-
     }
-
-    //TODO beide awps implementieren und tabelle
-
-    public static double f(double x, double y) {
-	// Definiere funktion hier!
-	return y;//- Math.pow(x, 3);
-    }
-
 }
