@@ -21,7 +21,6 @@ public class Launcher {
 	// i aendern!
 	for (int i = 1; i <= 20; i++) {
 
-	    // x = xi = ?
 	    k1 = f(x, y);
 	    k2 = f(x + 0.5 * h, y + 0.5 * k1 * h);
 	    k3 = f(x + 0.5 * h, y + 0.5 * k2 * h);
@@ -43,6 +42,11 @@ public class Launcher {
 
     //TODO beide awps implementieren und tabelle
 
+    public static void schiessverfahren(){
+    	// y" = y -t3 ,y(0)=2 , y'(0)=c solange in abh. von c integrieren bis y(2)=1
+    	
+    }
+    
     public static double f(double x, double y) {
 	// Definiere funktion hier!
 	return y;//- Math.pow(x, 3);
