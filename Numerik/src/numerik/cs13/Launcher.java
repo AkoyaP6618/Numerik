@@ -6,6 +6,7 @@ public class Launcher {
     public static double[] y2;
 
     public static void main(String[] args) {
+	// Matthias Thurow
 	RungeKutta rk = new RungeKutta();
 	AWPtoRWP awpToRwp = new AWPtoRWP();
 

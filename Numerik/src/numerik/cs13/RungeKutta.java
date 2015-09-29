@@ -9,8 +9,6 @@ public class RungeKutta {
      *            = y(0) = y1(0)
      * @param y2
      *            = y'(0) = y2(0)
-     * @param zielwert
-     * <br>
      * @param f
      * <br>
      *            Loesung fuer AWP 1 oder Awp 2
@@ -80,18 +78,54 @@ public class RungeKutta {
 	return r1;
     }
 
+    /**
+     * 1. Gleichung 1. AWP
+     * 
+     * @param y1
+     * @param y2
+     * @param t
+     * @return
+     * @author Matthias Thurow
+     */
     public double f11(double y1, double y2, double t) {
 	return y2;
     }
 
+    /**
+     * 2. Gleichung 1. AWP
+     * 
+     * @param y1
+     * @param y2
+     * @param t
+     * @return
+     * @author Matthias Thurow
+     */
     public double f12(double y1, double y2, double t) {
 	return y1 - Math.pow(t, 3);
     }
 
+    /**
+     * 1. Gleichung 2. AWP
+     * 
+     * @param y1
+     * @param y2
+     * @param t
+     * @return
+     * @author Matthias Thurow
+     */
     public double f21(double y1, double y2, double t) {
 	return y2;
     }
 
+    /**
+     * 2. Gleichung 2. AWP
+     * 
+     * @param y1
+     * @param y2
+     * @param t
+     * @return
+     * @author Matthias Thurow
+     */
     public double f22(double y1, double y2, double t) {
 	return y1;
     }
