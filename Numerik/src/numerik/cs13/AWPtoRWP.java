@@ -14,6 +14,8 @@ public class AWPtoRWP {
      *            = Konstante (beta-y1(b))/y2(b) beim RWP gilt:<br>
      *            y(a) = alpha<br>
      *            y(b) = beta
+     * @param schrittweite
+     *            muss fuer alle Rechnungen uebereinstimmen
      * @return Feld aller Ergebnisse von 0 bis zum Zielwert der AWP's
      * @author Matthias Thurow
      */
@@ -44,7 +46,7 @@ public class AWPtoRWP {
      * @return (beta - y1(b))/y2(b)
      * @author Matthias Thurow
      */
-    public double calculateC(int b, int beta, double[] y1, double[] y2) {
-	return (beta - y1[10 * b]) / y2[10 * b];
+    public double calculateC(int b, int beta, double[] y1, double[] y2, double schrittweite) {
+	return (beta - y1[(int) (b / schrittweite)]) / y2[(int) (b / schrittweite)];
     }
 }

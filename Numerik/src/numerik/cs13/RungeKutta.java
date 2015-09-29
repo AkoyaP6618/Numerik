@@ -15,14 +15,14 @@ public class RungeKutta {
      * @return Feld aller Ergebnisse von x=0 bis Zielwert
      * @author Matthias Thurow
      */
-    public double[] rungeKutta(double y1, double y2, double zielwert, int f) {
-	double[] r1 = new double[(int) (10 * zielwert + 1)];
+    public double[] rungeKutta(double y1, double y2, double zielwert, double schrittweite, int f) {
+	double[] r1 = new double[(int) ((1 / schrittweite) * zielwert + 1)];
 	r1[0] = y1; // Anfangswert fuer y1
 
-	double[] r2 = new double[(int) (10 * zielwert + 1)];
+	double[] r2 = new double[(int) ((1 / schrittweite) * zielwert + 1)];
 	r2[0] = y2;
 
-	double h = 0.1; // Schrittweite
+	double h = schrittweite;
 
 	double t = 0; // Anfangswert fuer t
 	// 0 da Anfangswertproblem
@@ -39,7 +39,7 @@ public class RungeKutta {
 	double l4 = 0;
 
 	if (f == 1) {// i = Anzahl der Schritte
-	    for (int i = 1; i <= 10 * zielwert; i++) {
+	    for (int i = 1; i <= (1 / schrittweite) * zielwert; i++) {
 		k1 = f11(y1, y2, t);
 		l1 = f12(y1, y2, t);
 
@@ -57,7 +57,7 @@ public class RungeKutta {
 		t += h;
 	    }
 	} else {// i = Anzahl der Schritte
-	    for (int i = 1; i <= 10 * zielwert; i++) {
+	    for (int i = 1; i <= (1 / schrittweite) * zielwert; i++) {
 		k1 = f21(y1, y2, t);
 		l1 = f22(y1, y2, t);
 
