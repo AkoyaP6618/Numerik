@@ -9,18 +9,19 @@ public class Launcher {
 	// Matthias Thurow
 	RungeKutta rk = new RungeKutta();
 	AWPtoRWP awpToRwp = new AWPtoRWP();
+	double schrittweite = 0.01;
 
 	System.out.println("Loesung folgender DGL 2. Ordnung als Randwertproblem:");
 	System.out.println("-y'' + y = t^3 , y(0) = 2, y(2) = 1\r");
 	System.out.println("1. 2 Anfangswertprobleme mit Runge-Kutta");
 	System.out.println("   I.  y'' = y - t^3   ; y(0)=2 ; y'(0)=0");
 	System.out.println("   II. y'' = y         ; y(0)=0 ; y'(0)=1");
-	double[] y1 = rk.rungeKutta(2, 0, 2, 1);
-	double[] y2 = rk.rungeKutta(0, 1, 2, 2);
-	double c = awpToRwp.calculateC(2, 1, y1, y2);
+	double[] y1 = rk.rungeKutta(2, 0, 2, schrittweite, 1);
+	double[] y2 = rk.rungeKutta(0, 1, 2, schrittweite, 2);
+	double c = awpToRwp.calculateC(2, 1, y1, y2, schrittweite);
 	double y[] = awpToRwp.toRWP(y1, y2, c);
 	for (int i = 0; i < y.length; i++) {
-	    double t = ((double) i) / 10;
+	    double t = (double) i / (1 / schrittweite);
 	    System.out.println("t = " + t + " ;  y = " + y[i]);
 
 	}
