@@ -20,7 +20,7 @@ public class Launcher {
 	double y[] = awpToRwp.toRWP(y1, y2, c);
 	for (int i = 0; i < y.length; i++) {
 	    double t = ((double) i) / 10;
-	    System.out.println("t = " + t + " ;  y = " + y2[i]);
+	    System.out.println("t = " + t + " ;  y = " + y[i]);
 
 	}
     }

@@ -15,6 +15,7 @@ public class RungeKutta {
      * <br>
      *            Loesung fuer AWP 1 oder Awp 2
      * @return Feld aller Ergebnisse von x=0 bis Zielwert
+     * @author Matthias Thurow
      */
     public double[] rungeKutta(double y1, double y2, double zielwert, int f) {
 	double[] r1 = new double[(int) (10 * zielwert + 1)];

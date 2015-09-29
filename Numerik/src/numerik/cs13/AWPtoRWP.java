@@ -15,6 +15,7 @@ public class AWPtoRWP {
      *            y(a) = alpha<br>
      *            y(b) = beta
      * @return Feld aller Ergebnisse von 0 bis zum Zielwert der AWP's
+     * @author Matthias Thurow
      */
     public double[] toRWP(double[] y1, double[] y2, double c) {
 	int length;
@@ -30,6 +31,19 @@ public class AWPtoRWP {
 	return y;
     }
 
+    /**
+     * 
+     * @param b
+     * @param beta
+     * <br>
+     *            2. Parameter des RWP (y(b) = beta)
+     * @param y1
+     *            = AWP1
+     * @param y2
+     *            = AWP2
+     * @return (beta - y1(b))/y2(b)
+     * @author Matthias Thurow
+     */
     public double calculateC(int b, int beta, double[] y1, double[] y2) {
 	return (beta - y1[10 * b]) / y2[10 * b];
     }
