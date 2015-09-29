@@ -17,13 +17,12 @@ public class RungeKutta {
      */
     public double[] rungeKutta(double y1, double y2, double zielwert, double schrittweite, int f) {
 	// Matthias Thurow
-    double[] r1 = new double[(int) ((1 / schrittweite) * zielwert + 1)];
+	double[] r1 = new double[(int) ((1 / schrittweite) * zielwert + 1)];
 	r1[0] = y1; // Anfangswert fuer y1
 
 	double[] r2 = new double[(int) ((1 / schrittweite) * zielwert + 1)];
-	r2[0] = y2;
+	r2[0] = y2; // Anfangswert fuer y'
 
-	
 	// Sebastian Wolff
 	double h = schrittweite;
 
@@ -82,7 +81,7 @@ public class RungeKutta {
     }
 
     // Matthias Thurow
-    
+
     /**
      * 1. Gleichung 1. AWP
      * 
